@@ -1,19 +1,39 @@
+/* Arena.css */
+#root {
+  height: 100vh;
+  width: 100vw; /* Utiliser la largeur de la vue */
+}
+
 .arena {
-  display: grid;
-  grid-template-columns: repeat(3, 100px); /* Largeur des cellules */
-  grid-gap: 5px; /* Espace entre les cellules */
-}
-
-.row {
-  display: flex;
-}
-
-.cell {
-  width: 100px;
-  height: 100px;
-  border: 1px solid #000;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    minmax(20vw, 1fr)
+  ); /* Utiliser des unités de largeur de la vue pour les colonnes */
+  gap: 16px;
+  max-width: 600px;
+}
+
+.grid-item {
+  padding: 16px;
+  background-color: lightblue;
+  text-align: center;
+  font-size: 18px;
+  border: 1px solid white;
+  min-height: 20px;
+  min-width: 20px;
+  aspect-ratio: 1/1; /* Crée des cases carrées */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur et la hauteur */
 }

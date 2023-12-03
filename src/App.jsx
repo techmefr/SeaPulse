@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import Counter from "./components/counter/Counter";
+import IncrementButton from "./components/counter/IncrementButton";
+import DecrementButton from "./components/counter/DecrementButton";
+import Arena from "./components/arena/Arena";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [points, setPoints] = useState(0);
+
+  const handleIncrement = () => {
+    setPoints(points + 1);
+  };
+
+  const handleDecrement = () => {
+    setPoints(points - 1);
+  };
 
   return (
-    <>
+    <div>
+      <h1>Titre de votre Application</h1>
+      <Counter points={points} />
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <IncrementButton handleClick={handleIncrement} />
+        <DecrementButton handleClick={handleDecrement} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <Arena />{" "}
+    </div>
+  );
 }
 
-export default App
+export default App;
